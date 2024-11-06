@@ -8,15 +8,15 @@ service Auth {
     rpc Register (RegisterRequest) returns (RegisterResponse);
     rpc Login (LoginRequest) returns (LoginResponse);
     rpc IsAdmin (IsAdminRequest) returns (IsAdminResponse);
-    rpc UpdateUser (UpdateUserRequest) returns (UpdateUserResponse);
-    rpc DeleteUser (DeleteUserRequest) returns (DeleteUserResponse);
-    rpc GetUserByID (GetUserByIDRequest) returns (GetResponse);
     rpc GetUserByEmail (GetUserByEmailRequest) returns (GetResponse);
 }
 
 message RegisterRequest {
     string email = 1; // Email of the user to registration
     string password = 2; // Password of the user to registration
+    string first_name = 3;
+    string last_name = 4;
+    string phone_number  = 5;
 }
 
 message RegisterResponse {
@@ -43,29 +43,8 @@ message IsAdminResponse {
     Error error = 2; // Error
 }
 
-message UpdateUserRequest {
-    int64 user_id = 1; // User ID to update
-    User user = 2;
-}
-
-message UpdateUserResponse {
-    Error error = 1; // Error
-}
-
-message DeleteUserRequest {
-    int64 user_id = 1; // User ID to delete
-}
-
-message DeleteUserResponse {
-    Error error = 1; // Error
-}
-
 message GetUserByEmailRequest {
     string email = 1; // User's email
-}
-
-message GetUserByIDRequest {
-    int64 user_id = 1; // User's ID
 }
 
 message GetResponse {
@@ -84,8 +63,8 @@ message User {
     string first_name = 2;
     string last_name = 3;
     string email = 4;
-    string phone_number  = 6;
-    string hash_password = 5;
+    string phone_number  = 5;
+    string hash_password = 6;
     string refresh_token  = 7;
     string ip = 8;
 }

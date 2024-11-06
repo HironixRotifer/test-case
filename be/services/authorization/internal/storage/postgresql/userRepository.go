@@ -66,35 +66,20 @@ func (u *UserRepository) createUser(ctx context.Context, user models.User) (int6
 	return id, nil
 }
 
-// UpdateUser updates the user in the database by id
-func (u *UserRepository) UpdateUser(ctx context.Context, id int64, user models.User) (int64, error) {
-	return 0, nil
-
-}
-
-// DeleteUser deletes the user in the database by id
-func (u *UserRepository) DeleteUser(ctx context.Context, id int64) error {
-	return nil
-
-}
-
-// GetUserByID returns the user by id
-func (u *UserRepository) GetUserByID(ctx context.Context, id int64) (models.User, error) {
-	return u.getUserByID(ctx, id)
-
-}
-
-func (u *UserRepository) getUserByID(ctx context.Context, id int64) (models.User, error) {
-
-	return models.User{}, nil
-}
-
 // GetUserByEmail returns the user by email
 func (u *UserRepository) GetUserByEmail(ctx context.Context, email string) (models.User, error) {
+	return u.getUserByEmail(ctx, email)
+}
+
+func (u *UserRepository) getUserByEmail(ctx context.Context, email string) (models.User, error) {
 	return models.User{}, nil
 }
 
 // IsAdmin returns true if user is admin
 func (u *UserRepository) IsAdmin(ctx context.Context, id int64) (bool, error) {
+	return u.isAdmin(ctx, id)
+}
+
+func (u *UserRepository) isAdmin(ctx context.Context, id int64) (bool, error) {
 	return true, nil
 }
