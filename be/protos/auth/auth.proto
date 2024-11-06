@@ -1,0 +1,91 @@
+syntax = "proto3";
+
+package auth;
+
+option go_package = "HironixRotifer.sso.v1;ssov1";
+
+service Auth {
+    rpc Register (RegisterRequest) returns (RegisterResponse);
+    rpc Login (LoginRequest) returns (LoginResponse);
+    rpc IsAdmin (IsAdminRequest) returns (IsAdminResponse);
+    rpc UpdateUser (UpdateUserRequest) returns (UpdateUserResponse);
+    rpc DeleteUser (DeleteUserRequest) returns (DeleteUserResponse);
+    rpc GetUserByID (GetUserByIDRequest) returns (GetResponse);
+    rpc GetUserByEmail (GetUserByEmailRequest) returns (GetResponse);
+}
+
+message RegisterRequest {
+    string email = 1; // Email of the user to registration
+    string password = 2; // Password of the user to registration
+}
+
+message RegisterResponse {
+    int64 user_id = 1; // User ID of the requestered user
+    Error error = 2; // Error
+}
+
+message LoginRequest {
+    string email = 1; // Email of the user to login 
+    string password = 2; // Password of the user to login
+}
+
+message LoginResponse {
+    string token = 1; // Auth token of the logged in user
+    Error error = 2; // Error
+}
+
+message IsAdminRequest {
+    int64 user_id = 1; // User ID to validate
+}
+
+message IsAdminResponse {
+    bool is_admin = 1; // Indicates whether the user is an admin
+    Error error = 2; // Error
+}
+
+message UpdateUserRequest {
+    int64 user_id = 1; // User ID to update
+    User user = 2;
+}
+
+message UpdateUserResponse {
+    Error error = 1; // Error
+}
+
+message DeleteUserRequest {
+    int64 user_id = 1; // User ID to delete
+}
+
+message DeleteUserResponse {
+    Error error = 1; // Error
+}
+
+message GetUserByEmailRequest {
+    string email = 1; // User's email
+}
+
+message GetUserByIDRequest {
+    int64 user_id = 1; // User's ID
+}
+
+message GetResponse {
+    User user = 1;
+    Error error = 2; // Error
+}
+
+message Error {
+    string code = 1;
+    string message = 2;
+    map<string, string> validation_errors = 3;
+}
+
+message User {
+    int64 id = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string email = 4;
+    string phone_number  = 6;
+    string hash_password = 5;
+    string refresh_token  = 7;
+    string ip = 8;
+}
