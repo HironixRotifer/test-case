@@ -6,7 +6,7 @@ import (
 	ssov1 "protos/auth"
 	"time"
 
-	authGRPClient "gateway/delivery/grpc/authGRPClient"
+	authGRPClient "gateway/delivery/grpc/auth"
 	"gateway/internal/lib/loki"
 
 	"github.com/gin-gonic/gin"

@@ -1,7 +1,7 @@
 package routes
 
 import (
-	authGRPClient "gateway/delivery/grpc/authGRPClient"
+	authGRPClient "gateway/delivery/grpc/auth"
 	handlers "gateway/delivery/http/handlers/authorization"
 
 	"github.com/gin-gonic/gin"
