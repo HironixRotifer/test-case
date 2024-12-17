@@ -98,11 +98,3 @@ func (a *Auth) IsAdmin(ctx context.Context, id int64) (bool, error) {
 
 	return isAdmin, nil
 }
-
-func (a *Auth) UpdateUser(ctx context.Context, id int64) error {
-	return nil
-}
-
-func (a *Auth) DeleteUser(ctx context.Context, id int64) error {
-	return nil
-}

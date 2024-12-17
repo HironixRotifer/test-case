@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package auth;
+
+option go_package = "AdamSmesher.admin.v1;adminv1";
+
+service AdminPanel {
+    rpc CreateUser (CreateUserRequest) returns (CreateUserResponse);
+    rpc UpdateUserByID (UpdateUserByIDRequest) returns (UpdateUserByIDResponse);
+    rpc DeleteUserByID (DeleteUserByIDRequest) returns (DeleteUserByIDResponse);
+    rpc GetUserByID (GetUserByIDRequest) returns (GetUserByIDResponse);
+    rpc GetUserByEmail (GetUserByEmailRequest) returns (GetUserByEmailResponse);
+    rpc GetUsers (GetUsersRequest) returns (GetUsersResponse);
+
+}
+
+message CreateUserRequest {
+
+}
+
+message CreateUserResponse {
+
+}
+
+message UpdateUserByIDRequest {
+
+}
+
+message UpdateUserByIDResponse {
+
+}
+
+message DeleteUserByIDRequest {
+    
+}
+
+
+message DeleteUserByIDResponse {
+    
+}
+
+message GetUserByIDRequest {
+    
+}
+
+message GetUserByIDResponse {
+    
+}
+
+message GetUserByEmailRequest {
+    
+}
+
+message GetUserByEmailResponse {
+    
+}
+
+message GetUsersRequest {
+    
+}
+
+message GetUsersResponse {
+    
+}

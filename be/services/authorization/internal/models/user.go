@@ -6,7 +6,7 @@ type User struct {
 	LastName     string `json:"last_name" validate:"required,min=2,max=30"`
 	Email        string `json:"email" validate:"required"`
 	PhoneNumber  string `json:"phone_number" validate:"required"`
-	HashPassword string `json:"hash_password"`
+	HashPassword string `json:"hash_password" validate:"required"`
 	Salt         []byte `json:"salt" validate:"required"`
 	RefreshToken string `json:"refresh_token"`
 

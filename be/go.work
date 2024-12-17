@@ -7,4 +7,5 @@ use (
 	./protos
 	./services/authorization
 	./services/clientCorner
+	./services/api-gateway
 )
